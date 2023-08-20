@@ -7,13 +7,13 @@ import javax.swing.*;
 
 public class InputNumView {
     public static void showInputNumView(){
-        String [] converters = new String[]{"Convertidor de moneda","Convertidor de Binario a decimal"};
+
         boolean isTheInputRight = false;
-        Float election = 0.00f;
+        Float inputNum = 0.00f;
 
         do {
             try {
-                election = Float.parseFloat((String)
+                inputNum = Float.parseFloat((String)
                         JOptionPane.showInputDialog(null
                                 , "Ingresa el numero a convertir (Solo caracteres numericos)"
                                 , "Convertidor de Moneda", JOptionPane.QUESTION_MESSAGE
@@ -30,9 +30,33 @@ public class InputNumView {
             }
         }while (!isTheInputRight);
 
+        showInputCurrencies(inputNum);
+    }
 
+    public static void showInputCurrencies(Float numToConvert){
 
-        System.out.println(election);
+        final String [] currencies = new String[]{
+                "De Pesos a Dolar",
+                "De Pesos a Euro",
+                "De Pesos a Libras",
+                "De Pesos a Yen",
+                "De Pesos a Won Coreano",
+                "De Dolar a Pesos",
+                "De Euro a Pesos",
+                "De Libras a Pesos",
+                "De Yen a Pesos",
+                "De Won Coreano a Pesos"
+        };
+
+        String chosenCurrency = (String) JOptionPane.showInputDialog(null
+                ,"Selecciona la moneda a la cual quieres convertir"
+                ,"Convertidor de moneda"
+                , JOptionPane.QUESTION_MESSAGE
+                , MainMenu.logo
+                ,currencies
+                ,currencies[0]
+        );
+
     }
 
 }

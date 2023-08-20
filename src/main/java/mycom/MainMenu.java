@@ -7,7 +7,7 @@ public class MainMenu {
         public static void main(String[] args) {
 
                 //Calculator Options
-                String [] converters = new String[]{"Convertidor de moneda","Convertidor de Binario a decimal"};
+               final String [] converters = new String[]{"Convertidor de moneda","Convertidor de Binario a decimal"};
                String election = (String) JOptionPane.showInputDialog(null,"Elije el convertidor a udar",
                         "Menu Principal",
                         JOptionPane.QUESTION_MESSAGE, logo,converters,converters[0]
