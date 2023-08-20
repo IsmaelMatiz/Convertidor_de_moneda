@@ -27,6 +27,8 @@ public class InputNumView {
                         ,"Valor ingresado no es un numero, intentalo de nuevo"
                         ,"Convertidor de Moneda"
                         ,JOptionPane.ERROR_MESSAGE);
+            }catch (NullPointerException en){
+                MainMenu.mainMenu();
             }
         }while (!isTheInputRight);
 
@@ -56,8 +58,6 @@ public class InputNumView {
                 ,currencies
                 ,currencies[0]
         );
-
-        showConversionResult(numToConvert,chosenCurrency);
     }
 
     public  static void showConversionResult(Float Result, String Currency){
