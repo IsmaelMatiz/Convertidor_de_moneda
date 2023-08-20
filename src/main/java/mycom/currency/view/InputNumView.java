@@ -56,7 +56,15 @@ public class InputNumView {
                 ,currencies
                 ,currencies[0]
         );
+    }
 
+    public  static void showConversionResult(Float Result, String Currency){
+        JOptionPane.showMessageDialog(null
+                ,"Tienes $"+Result+" "+Currency
+                ,"Convertidor de Moneda"
+                ,JOptionPane.QUESTION_MESSAGE
+                ,MainMenu.logo
+                );
     }
 
 }
