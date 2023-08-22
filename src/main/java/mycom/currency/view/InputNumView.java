@@ -58,40 +58,8 @@ public class InputNumView {
                 ,currencies
                 ,currencies[0]
         );
+
+        MainMenu.showConversionResult(numToConvert,chosenCurrency);
     }
-
-    public  static void showConversionResult(Float Result, String Currency){
-        JOptionPane.showMessageDialog(null
-                ,"Tienes $"+Result+" "+Currency
-                ,"Convertidor de Moneda"
-                ,JOptionPane.QUESTION_MESSAGE
-                ,MainMenu.logo
-                );
-
-        showAskToContinue();
-    }
-
-    public static  void showAskToContinue(){
-        Integer election =  JOptionPane.showConfirmDialog(null
-                ,"¿Deseas continuar?"
-                ,"Convertidor de Moneda"
-                ,JOptionPane.YES_NO_CANCEL_OPTION
-                ,JOptionPane.QUESTION_MESSAGE
-                ,MainMenu.logo
-                );
-        //If the user choose yes go back to the Main Menu
-        if (election == 0){
-            MainMenu.mainMenu();
-        }else{
-            JOptionPane.showMessageDialog(
-                    null
-                    ,"Programa Finalizado"
-                    ,"Convertidor de Moneda"
-                    ,JOptionPane.QUESTION_MESSAGE
-                    ,MainMenu.logo
-            );
-        }
-    }
-
 
 }
