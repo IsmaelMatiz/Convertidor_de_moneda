@@ -3,16 +3,18 @@ package mycom;
 import javax.swing.*;
 
 import mycom.binary.view.InputBinaryConverterViews;
+import mycom.currency.logic.CurAPICall;
 import mycom.currency.view.InputNumView;
+
 public class MainMenu {
         public static final ImageIcon logo = new ImageIcon("src/main/java/mycom/images/logo.png");
     public static final ImageIcon binaryLogo = new ImageIcon("src/main/java/mycom/images/binario.png");
         public static void main(String[] args) {
 
             //Get the currencies from the Api
-
+            CurAPICall.getInstance().setRates();
             //Start the first GUI
-            mainMenu();
+            //mainMenu();
         }
 
         public static void mainMenu(){
