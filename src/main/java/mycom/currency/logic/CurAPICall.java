@@ -1,8 +1,10 @@
 package mycom.currency.logic;
 
+import com.google.gson.Gson;
 import okhttp3.*;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public final class CurAPICall {
 
@@ -10,10 +12,15 @@ public final class CurAPICall {
         private Float dolarRate;
         private Float euroRate;
         private Float poundRate;
+        private Float yenRate;
         private Float koreanWonRate;
 
         public Float getDolarRate() {
                 return dolarRate;
+        }
+
+        public Float getYenRate() {
+                return yenRate;
         }
 
         public Float getEuroRate() {
@@ -59,7 +66,22 @@ public final class CurAPICall {
                         throw new RuntimeException(e);
                 }
 
-                System.out.println(jsonData);
+                Gson gson = new Gson();
+
+                Rates rates =  gson.fromJson(jsonData, Rates.class);
+                /*
+                * "USD"
+                * "EUR"
+                * "GBP"
+                * "JPY"
+                * "KRW"
+                * */
+                this.dolarRate = Float.parseFloat(rates.data.get("USD").value);
+                this.euroRate = Float.parseFloat(rates.data.get("EUR").value);
+                this.poundRate = Float.parseFloat(rates.data.get("GBP").value);
+                this.yenRate =  Float.parseFloat(rates.data.get("JPY").value);
+                this.koreanWonRate = Float.parseFloat(rates.data.get("KRW").value);
+
         }
         private CurAPICall() {
         }
