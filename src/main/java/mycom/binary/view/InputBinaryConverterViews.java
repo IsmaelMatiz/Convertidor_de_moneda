@@ -51,6 +51,5 @@ public class InputBinaryConverterViews {
             }
         }while (!isTheInputRight);
 
-        MainMenu.showConversionResult(inputNum);
     }
 }

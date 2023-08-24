@@ -16,7 +16,7 @@ public class MainMenu {
             //Get the currencies from the Api
             CurAPICall.getInstance().setRates();
             //Start the first GUI
-            //mainMenu();
+            mainMenu();
         }
 
         public static void mainMenu(){
@@ -49,7 +49,7 @@ public class MainMenu {
     public  static void showConversionResult(Integer Result){
 
         JOptionPane.showMessageDialog(null
-                ,"El Valor es" + Result
+                ,"El Valor es " + Result
                 ,"Convertidor de Binario"
                 ,JOptionPane.QUESTION_MESSAGE
                 ,MainMenu.binaryLogo

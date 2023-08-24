@@ -1,6 +1,7 @@
 package mycom.currency.view;
 
 import mycom.MainMenu;
+import mycom.currency.logic.Calculation;
 
 
 import javax.swing.*;
@@ -59,7 +60,7 @@ public class InputNumView {
                 ,currencies[0]
         );
 
-        MainMenu.showConversionResult(numToConvert,chosenCurrency);
+        Calculation.CalculateConversion(numToConvert,chosenCurrency);
     }
 
 }
