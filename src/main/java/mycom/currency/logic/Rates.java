@@ -2,6 +2,9 @@ package mycom.currency.logic;
 
 import java.util.HashMap;
 
+/**
+ * This Class help me to convert the Json to an object easy to handle
+ */
 public class Rates {
     HashMap<String,InfoRates> data;
 

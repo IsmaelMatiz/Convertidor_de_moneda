@@ -2,10 +2,13 @@ package mycom.currency.logic;
 
 import com.google.gson.Gson;
 import okhttp3.*;
-
 import java.io.IOException;
-import java.text.DecimalFormat;
 
+/**
+ * This class use the singleton pattern to call  the API https://currencyapi.com/docs
+ * in order to get the conversion rate that is updated daily, avoiding entering
+ * the value manually
+ */
 public final class CurAPICall {
 
         private static CurAPICall instance;
@@ -35,7 +38,12 @@ public final class CurAPICall {
                 return koreanWonRate;
         }
 
+        /**
+         * This function handle all the api call process  and  set conversion rates
+         * @Return set the Currencies Conversion Rates
+         */
         public void setRates(){
+                //here i set the url for the call
                 HttpUrl httpUrl = new HttpUrl.Builder()
                         .scheme("https")
                         .host("api.currencyapi.com")
@@ -44,15 +52,18 @@ public final class CurAPICall {
                         .addQueryParameter("apikey","cur_live_skzpOTimDeosr1RlFsb1nXrus9el6qF8zBCwLoaH")
                         .addQueryParameter("base_currency","COP")
                         .build();
-                System.out.println(httpUrl);
+
+                //here the http client and how will be the call
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
                         .url(httpUrl).build();
 
+                //set the var to catch the response
                 Response response = null;
                 String jsonData = "";
 
                 try {
+                        //send the http request and save the response
                         response = client.newCall(request).execute();
                 }catch (Exception e){
                         System.out.println("Error al llamar la API:  "+e);
@@ -61,15 +72,17 @@ public final class CurAPICall {
                 System.out.println("El codigo es: "+response.code());
 
                 try {
+                        //try to convert the response to a String
                         jsonData = response.body().string();
                 } catch (IOException e) {
                         throw new RuntimeException(e);
                 }
 
+                //Serialize the Json response
                 Gson gson = new Gson();
-
                 Rates rates =  gson.fromJson(jsonData, Rates.class);
                 /*
+                * set the values
                 * "USD"
                 * "EUR"
                 * "GBP"
@@ -81,7 +94,6 @@ public final class CurAPICall {
                 this.poundRate = Float.parseFloat(rates.data.get("GBP").value);
                 this.yenRate =  Float.parseFloat(rates.data.get("JPY").value);
                 this.koreanWonRate = Float.parseFloat(rates.data.get("KRW").value);
-
         }
         private CurAPICall() {
         }
