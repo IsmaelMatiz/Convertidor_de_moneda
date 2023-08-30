@@ -11,7 +11,7 @@ basically this project is a money converter from Colombian pesos to the next cur
 in order to do this more exciting I'm going to use the next API [https://currencyapi.com/docs](currencyapi)
 to get the most recent value from the different currencies.
 
-In addition as an extramile this project includes another converter, Celsius to Fahrenheit 
+In addition as an extramile this project includes another converter, Binary to Decimal 
 
 ## Tecnologies
 
@@ -20,6 +20,7 @@ The project has been made with
 - Java with the JDK 11 
 - Swing for the graphic interphase
 - the currency API mentioned before
+- Gson for handle the API answer
 
 ---
 
@@ -27,10 +28,10 @@ The project has been made with
 
 This is pretty easy to use, just execute the main file or if you are using the jar just execute it (Keep in mind that you will need to use the JDK 11), then you will see a dialog that will ask you 
 
-wich converter use? (temperture or currency)
+wich converter use? (Binary or currency)
 
-##### Temperture
-At this point the system will ask u to enter the number in Celsius then you will see the result in Fahrenheit, finally another dialog to return at the begining or enter another temperture
+##### Binary
+The first parte will ask u the way to converte Binary to decimal or vice-versa, then the system will ask u to enter the number in the choosen election(decimal or binary) then you will see the conversion result, finally another dialog to return at the begining or close the program
 
 ##### Currency
 First the system will ask you the amount to convert then the currency and finally the value also will ask you to return to the main menu, enter another amount or exit
