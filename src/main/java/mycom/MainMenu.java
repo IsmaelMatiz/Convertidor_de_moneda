@@ -2,6 +2,7 @@ package mycom;
 
 import javax.swing.*;
 
+import mycom.binary.logic.BiCalculation;
 import mycom.binary.view.InputBinaryConverterViews;
 import mycom.currency.logic.CurAPICall;
 import mycom.currency.view.InputNumView;
@@ -47,6 +48,18 @@ public class MainMenu {
     }
 
     public  static void showConversionResult(Integer Result){
+
+        JOptionPane.showMessageDialog(null
+                ,"El Valor es " + Result
+                ,"Convertidor de Binario"
+                ,JOptionPane.QUESTION_MESSAGE
+                ,MainMenu.binaryLogo
+        );
+
+        showAskToContinue("Convertidor de Binario");
+    }
+
+    public  static void showConversionResult(String Result){
 
         JOptionPane.showMessageDialog(null
                 ,"El Valor es " + Result
