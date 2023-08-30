@@ -2,15 +2,20 @@ package mycom;
 
 import javax.swing.*;
 
+import mycom.binary.logic.BiCalculation;
 import mycom.binary.view.InputBinaryConverterViews;
+import mycom.currency.logic.CurAPICall;
 import mycom.currency.view.InputNumView;
+
+import java.text.DecimalFormat;
+
 public class MainMenu {
         public static final ImageIcon logo = new ImageIcon("src/main/java/mycom/images/logo.png");
     public static final ImageIcon binaryLogo = new ImageIcon("src/main/java/mycom/images/binario.png");
         public static void main(String[] args) {
 
             //Get the currencies from the Api
-
+            CurAPICall.getInstance().setRates();
             //Start the first GUI
             mainMenu();
         }
@@ -45,7 +50,19 @@ public class MainMenu {
     public  static void showConversionResult(Integer Result){
 
         JOptionPane.showMessageDialog(null
-                ,"El Valor es" + Result
+                ,"El Valor es " + Result
+                ,"Convertidor de Binario"
+                ,JOptionPane.QUESTION_MESSAGE
+                ,MainMenu.binaryLogo
+        );
+
+        showAskToContinue("Convertidor de Binario");
+    }
+
+    public  static void showConversionResult(String Result){
+
+        JOptionPane.showMessageDialog(null
+                ,"El Valor es " + Result
                 ,"Convertidor de Binario"
                 ,JOptionPane.QUESTION_MESSAGE
                 ,MainMenu.binaryLogo
